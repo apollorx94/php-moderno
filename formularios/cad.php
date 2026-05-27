@@ -1,3 +1,8 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,8 +18,8 @@
     </header>
     <main>
         <?php
-        $nome = $_GET["nome"]; //?? "sem nome";
-        $sobrenome = $_GET["sobrenome"] ;//?? "sem sobrenome";
+        $nome = $_GET["nome"] ?? "##WARNING##";
+        $sobrenome = $_GET["sobrenome"] ?? "##WARNING##";
         echo "Ola $nome $sobrenome, bem vindo ao meu site!";
         ?>
         <p><a href="javascript:history.go(-1)">Voltar a pagina inicial</a></p>
