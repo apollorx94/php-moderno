@@ -151,22 +151,23 @@ function calcularIRRF(
     }
 
     // =========================
-    // NOVA REGRA DO REDUTOR
+    // NOVA REGRA
     // =========================
 
     $redutor = 0;
+    $irFinal = $irNormal;
 
-    // Faixa até 5 mil
-    if ($baseCalculo <= 5000) {
+    // ISENÇÃO TOTAL
+    if ($salarioBruto <= 5000) {
 
-        $redutor = min($irNormal, 312.89);
+        $irFinal = 0;
     }
 
-    // Faixa intermediária
-    elseif ($baseCalculo <= 7350) {
+    // DESCONTO PARCIAL
+    elseif ($salarioBruto <= 7350) {
 
         $redutor =
-            978.62 - (0.133145 * $baseCalculo);
+            978.62 - (0.133145 * $salarioBruto);
 
         // Garante mínimo zero
         if ($redutor < 0) {
@@ -177,10 +178,9 @@ function calcularIRRF(
         if ($redutor > $irNormal) {
             $redutor = $irNormal;
         }
-    }
 
-    // IR final
-    $irFinal = $irNormal - $redutor;
+        $irFinal = $irNormal - $redutor;
+    }
 
     return [
 
