@@ -11,7 +11,8 @@
 <body>
     <header>
         <h1>Calculadora de Salario</h1>
-        <p>Essa calculadora tem como objetivo calcular o salario com descontos do INSS e IRRF respectivamente</p>
+        <p>Essa calculadora tem como objetivo calcular o salario liquido informando os descontos do INSS e IRRF
+            respectivamente</p>
     </header>
     <section>
         <form id="formSalario">

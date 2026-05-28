@@ -206,7 +206,11 @@ $irrf = calcularIRRF(salarioBruto: $salario, inss: $inss['total'], dependentes: 
 
 //Salario Liquido calculado apenas INSS
 $salarioLiquido = $salario - $inss['total'] - $irrf['valor'];
+$totalDesconto = $inss['total'] + $irrf['valor'];
 
-echo "<p>Seu salario liquido ficou: R$" . $salarioLiquido . "<br>";
-echo "<p>Desconto INSS é: " . $inss['total'];
-echo "<p>Desconto IRRF: R$" . $irrf['valor'];
+echo "<p>Seu salário líquido ficou: R$ " . number_format($salarioLiquido, 2, ',', '.');
+echo "<ul>";
+echo "<li>Desconto INSS é: R$ " . number_format($inss['total'], 2, ',', '.') . "</li>";
+echo "<li>Desconto IRRF é: R$ " . number_format($irrf['valor'], 2, ',', '.') . "</li>";
+echo "<li>Total Desconto R$ " . number_format($totalDesconto, 2, ',', '.') . "</li>";
+echo "</ul>";
