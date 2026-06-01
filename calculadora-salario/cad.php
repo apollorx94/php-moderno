@@ -16,6 +16,12 @@ function calcularINSS(float $salario): array
     // Limita salário ao teto
     $salarioBase = min($salario, $tetoINSS);
 
+    /*debug 1 - mostra o valor do salario base após receber do usuario
+    echo 'Valor do Salario: ';
+    var_dump($salarioBase);
+    echo '<br>';*/
+
+
     $faixas = [
 
         [
@@ -39,6 +45,12 @@ function calcularINSS(float $salario): array
         ]
     ];
 
+    // debug 02 - mostra os detalhes das faixas acima
+
+    /*echo 'Array com as faixas: ';
+    print_r($faixas);
+    echo '<br>';*/
+
     $totalINSS = 0;
     $faixaAnterior = 0;
     $detalhes = [];
@@ -46,6 +58,10 @@ function calcularINSS(float $salario): array
     foreach ($faixas as $faixa) {
 
         if ($salarioBase > $faixaAnterior) {
+
+            /* echo 'Mostra o looping: ';
+            var_dump($faixa); // debug 3 - mostra cada faixa a cada volta
+            echo '<br>';*/
 
             $baseFaixa = min($salarioBase, $faixa['max']) - $faixaAnterior;
 
