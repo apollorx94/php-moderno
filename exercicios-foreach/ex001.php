@@ -7,5 +7,5 @@ $contador = 1;
 foreach ($listaTarefas as $lista) {
 
     echo $contador . "º:" . $lista . "\n";
-    $contador++;
+    $contador = $contador + 1;
 }
